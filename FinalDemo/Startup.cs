@@ -36,6 +36,10 @@ namespace FinalDemo
             }
 
             app.UseRouting();
+            
+            // Add support for static files
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
 
             app.UseAuthorization();
 
