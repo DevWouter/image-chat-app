@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "images/rubber-duck-bath.jpg"
+  },
+  {
+    "id": 2,
+    "imageUrl": "images/rubber-duck-between-feets.jpg"
+  },
+  {
+    "id": 3,
+    "imageUrl": "images/rubber-duck-hold-by-mad-man-in-bath.jpg"
+  },
+  {
+    "id": 4,
+    "imageUrl": "images/rubber-duck-in-port-2.jpg"
+  },
+  {
+    "id": 5,
+    "imageUrl": "images/rubber-duck-in-port.jpg"
+  },
+  {
+    "id": 6,
+    "imageUrl": "images/rubber-duck-multiple-thrown-in-air.jpg"
+  },
+  {
+    "id": 7,
+    "imageUrl": "images/rubber-duck-with-beer.jpg",
+  }
+]

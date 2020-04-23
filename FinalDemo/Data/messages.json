@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 1,
+    "ImageId": 1,
+    "UserId": 1,
+    "Content": "I like it"
+  },
+  {
+    "Id": 2,
+    "ImageId": 1,
+    "UserId": 1,
+    "Content": "A lot"
+  },
+  {
+    "Id": 3,
+    "ImageId": 1,
+    "UserId": 1,
+    "Content": "Hi"
+  }
+]

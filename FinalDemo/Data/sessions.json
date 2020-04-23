@@ -1,0 +1,42 @@
+[
+  {
+    "Id": 1,
+    "UserId": 1,
+    "SessionKey": "00000000-0000-0000-0000-000000000000"
+  },
+  {
+    "Id": 2,
+    "UserId": 1,
+    "SessionKey": "69a91786-33b5-4b4e-8817-f9164c22c0ca"
+  },
+  {
+    "Id": 3,
+    "UserId": 1,
+    "SessionKey": "4a077d15-30bb-442b-8334-638d8bb8c067"
+  },
+  {
+    "Id": 4,
+    "UserId": 1,
+    "SessionKey": "f4f8d97c-a0cd-4377-b958-63256da8b7c6"
+  },
+  {
+    "Id": 5,
+    "UserId": 1,
+    "SessionKey": "7e5976d6-cb57-4f11-9aae-fdef0d128b46"
+  },
+  {
+    "Id": 6,
+    "UserId": 1,
+    "SessionKey": "e7a94190-6599-4198-a3f4-143cd0eecb48"
+  },
+  {
+    "Id": 7,
+    "UserId": 1,
+    "SessionKey": "4aa76448-608b-46f5-97af-f9e19b867bdc"
+  },
+  {
+    "Id": 8,
+    "UserId": 1,
+    "SessionKey": "34b6fdd5-bcea-42c1-9451-577d3897455e"
+  }
+]
