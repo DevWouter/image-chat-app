@@ -10,19 +10,7 @@ namespace FinalDemo.Services
     {
         public IEnumerable<ImageDto> GetAll()
         {
-            return new ImageDto[]
-            {
-                new ImageDto
-                {
-                    Id=1,
-                    ImageUrl="my-first-image.png"
-                },
-                new ImageDto
-                {
-                    Id=2,
-                    ImageUrl="my-second-image.png"
-                },
-            };
+            return Store.ReadJsonFromFile<IEnumerable<ImageDto>>(StorePaths.Images);
         }
     }
 }
