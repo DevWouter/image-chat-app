@@ -8,12 +8,19 @@ namespace FinalDemo.Services
 {
     public class AccountService
     {
+        private readonly SessionService _sessionService;
+        
+        public AccountService(SessionService sessionService)
+        {
+            _sessionService = sessionService;
+        }
+
         public Account Create(string username, string password)
         {
             var accounts = Store.ReadJsonFromFile<IEnumerable<Account>>(StorePaths.Accounts)
                 .ToList();
 
-            if(accounts.Any(x=> x.Name == username))
+            if (accounts.Any(x => x.Name == username))
             {
                 throw new Exception("Username is already in use");
             }
@@ -42,6 +49,13 @@ namespace FinalDemo.Services
             var accounts = Store.ReadJsonFromFile<IEnumerable<Account>>(StorePaths.Accounts);
             var account = accounts.SingleOrDefault(x => x.Name == username && x.Password == password);
             return account;
+        }
+
+        public Account FindBySessionKey(Guid sessionKey)
+        {
+            var session = _sessionService.GetBySessionKey(sessionKey);
+            var accounts = Store.ReadJsonFromFile<IEnumerable<Account>>(StorePaths.Accounts);
+            return accounts.SingleOrDefault(x => x.Id == session.UserId);
         }
     }
 }
