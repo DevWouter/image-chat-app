@@ -14,10 +14,12 @@ namespace FinalDemo.Controllers
     public class AccountController : ControllerBase
     {
         private readonly AccountService _accountService;
+        private readonly SessionService _sessionService;
 
-        public AccountController(AccountService accountService)
+        public AccountController(AccountService accountService, SessionService sessionService)
         {
             _accountService = accountService;
+            _sessionService = sessionService;
         }
 
         [HttpPost]
@@ -28,6 +30,28 @@ namespace FinalDemo.Controllers
             {
                 _accountService.Create(body.Username, body.Password);
                 return Ok();
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("login")]
+        public IActionResult Login(AccountRequest body)
+        {
+            try
+            {
+                var account = _accountService.FindByUsernameAndPassword(body.Username, body.Password);
+                if (account == null)
+                {
+                    throw new Exception("Login is invalid");
+                }
+
+                var session = _sessionService.Create(account.Id);
+
+                return Ok(session);
             }
             catch (Exception ex)
             {
