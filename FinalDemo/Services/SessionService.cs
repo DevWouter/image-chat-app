@@ -31,5 +31,11 @@ namespace FinalDemo.Services
 
             return newSession;
         }
+
+        public Session GetBySessionKey(Guid sessionKey)
+        {
+            return Store.ReadJsonFromFile<IEnumerable<Session>>(StorePaths.Sessions)
+                .SingleOrDefault(x => x.SessionKey == sessionKey);
+        }
     }
 }
