@@ -14,10 +14,12 @@ namespace FinalDemo.Controllers
     public class ChatController : ControllerBase
     {
         private readonly ChatService _chatService;
+        private readonly AccountService _accountService;
 
-        public ChatController(ChatService chatService)
+        public ChatController(ChatService chatService, AccountService accountService)
         {
             _chatService = chatService;
+            _accountService = accountService;
         }
 
         [HttpGet]
@@ -30,6 +32,22 @@ namespace FinalDemo.Controllers
                 Message = x.Content,
                 Username = $"User {x.UserId}"
             });
+        }
+
+        [HttpPost]
+        [Route("{imageId}")]
+        public IActionResult PostMessageForImage(int imageId, ChatRequest body)
+        {
+            try
+            {
+                var user = _accountService.FindBySessionKey(body.SessionKey);
+                var chat = _chatService.Create(imageId, user, body.Message);
+                return Ok(chat);
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
         }
     }
 }
