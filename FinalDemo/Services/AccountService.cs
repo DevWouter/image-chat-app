@@ -36,5 +36,12 @@ namespace FinalDemo.Services
 
             return newAccount;
         }
+
+        public Account FindByUsernameAndPassword(string username, string password)
+        {
+            var accounts = Store.ReadJsonFromFile<IEnumerable<Account>>(StorePaths.Accounts);
+            var account = accounts.SingleOrDefault(x => x.Name == username && x.Password == password);
+            return account;
+        }
     }
 }
