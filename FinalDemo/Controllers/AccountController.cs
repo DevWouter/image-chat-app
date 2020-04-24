@@ -22,9 +22,17 @@ namespace FinalDemo.Controllers
 
         [HttpPost]
         [Route("")]
-        public void PostAccount(AccountRequest body)
+        public IActionResult PostAccount(AccountRequest body)
         {
-            _accountService.Create(body.Username, body.Password);
+            try
+            {
+                _accountService.Create(body.Username, body.Password);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return Problem(ex.Message);
+            }
         }
 
     }
