@@ -25,5 +25,12 @@ namespace FinalDemo.Controllers
         {
             return _imageService.GetAll();
         }
+
+        [HttpGet]
+        [Route("{imageId}")]
+        public ImageDto GetById(int imageId)
+        {
+            return _imageService.GetById(imageId);
+        }
     }
 }

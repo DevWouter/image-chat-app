@@ -12,5 +12,11 @@ namespace FinalDemo.Services
         {
             return Store.ReadJsonFromFile<IEnumerable<ImageDto>>(StorePaths.Images);
         }
+
+        internal ImageDto GetById(int imageId)
+        {
+            return Store.ReadJsonFromFile<IEnumerable<ImageDto>>(StorePaths.Images)
+                .SingleOrDefault(x => x.Id == imageId);
+        }
     }
 }
