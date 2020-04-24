@@ -13,6 +13,11 @@ namespace FinalDemo.Services
             var accounts = Store.ReadJsonFromFile<IEnumerable<Account>>(StorePaths.Accounts)
                 .ToList();
 
+            if(accounts.Any(x=> x.Name == username))
+            {
+                throw new Exception("Username is already in use");
+            }
+
             var nextId = accounts
                 .Select(x => x.Id)
                 .OrderByDescending(x => x)
