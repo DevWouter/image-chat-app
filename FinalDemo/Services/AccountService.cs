@@ -57,5 +57,11 @@ namespace FinalDemo.Services
             var accounts = Store.ReadJsonFromFile<IEnumerable<Account>>(StorePaths.Accounts);
             return accounts.SingleOrDefault(x => x.Id == session.UserId);
         }
+
+        public Account FindById(int accountId)
+        {
+            var accounts = Store.ReadJsonFromFile<IEnumerable<Account>>(StorePaths.Accounts);
+            return accounts.SingleOrDefault(x => x.Id == accountId);
+        }
     }
 }

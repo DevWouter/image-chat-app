@@ -30,7 +30,7 @@ namespace FinalDemo.Controllers
             return allMessages.Select(x => new ChatDto()
             {
                 Message = x.Content,
-                Username = $"User {x.UserId}"
+                Username = _accountService.FindById(x.UserId).Name
             });
         }
 
