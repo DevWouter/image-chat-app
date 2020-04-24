@@ -60,6 +60,7 @@ namespace FinalDemo.Services
 
         public Account FindById(int accountId)
         {
+            System.Threading.Thread.Sleep(100);
             var accounts = Store.ReadJsonFromFile<IEnumerable<Account>>(StorePaths.Accounts);
             return accounts.SingleOrDefault(x => x.Id == accountId);
         }
