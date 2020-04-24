@@ -27,7 +27,7 @@ namespace FinalDemo.Controllers
         public IEnumerable<ChatDto> GetMessageForImage(int imageId)
         {
             var allMessages = _chatService.GetForImageId(imageId);
-            return allMessages.Select(x => new ChatDto()
+            return allMessages.AsParallel().WithDegreeOfParallelism(20).Select(x => new ChatDto()
             {
                 Message = x.Content,
                 Username = _accountService.FindById(x.UserId).Name
